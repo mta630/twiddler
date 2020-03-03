@@ -1,0 +1,185 @@
+/* Boxes for displaying tweets
+*/
+
+html, body {
+  box-sizing: border-box;
+  background-color: white;
+  height: 100%;
+  padding: 10px;
+  margin: 0px;
+}
+
+
+/*
+	==============================HEADER=================================
+*/
+
+.container {
+	height: 100%;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 110px 80px auto 80px;
+    grid-template-areas:
+    		"t t t t t t t t t t t t"
+    		"m m m m m m m m m m m m"
+			"c c c c c c c c c c c c"
+			"f f f f f f f f f f f f";
+}
+
+.container > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  color: white;
+}
+
+.title {
+	grid-area: t;
+	background-color: #00acee;
+}
+
+h1 {
+	font-family: 'Bebas Neue';
+	text-shadow: black 2px 2px;
+	letter-spacing: 10px;
+	text-shadow: black 2px 2px;
+	font-size: 95px;
+}
+
+ul {
+	font-size: 30px;
+	list-style: none;
+	margin-right: 50px;
+
+}
+
+ul li{
+	display:inline;
+	font-weight: 50;
+	font-size: 30px;
+	font-family: 'Bebas Neue';
+	display: inline;
+}
+
+.menu {
+	grid-area: m;
+	background-color: #02182B;
+}
+
+/*
+	==========================ENTER A TWEET==========================
+*/
+
+
+
+/*
+	==========================TIMELINE FORMATTING==========================
+*/
+
+.content {
+	grid-area: c;
+	background-color: white;
+}
+
+.twiddle-container{
+	height: 100%;
+	width: 80%;
+    display: block;
+	background-color: white;
+	padding: 10px 10px;
+	margin: 5px 5px;
+}
+
+.twiddle-container div{
+	max-height: 200px;
+	padding-bottom: 50px;
+	border: 2px groove black;
+	background-color: #00acee;
+	border-radius: 20px;
+	margin-bottom: 20px;
+
+}
+
+#user {
+	font-family: 'Quicksand';
+	font-size: 22px;
+	font-weight: 700;
+	color: #02182B;
+	padding-left: 15px;
+}
+
+#user:hover{
+	color: white;
+	font-weight: 800;
+	cursor: pointer;
+}
+
+#message {
+	font-family: 'Quicksand';
+	font-size: 16px;
+	font-weight: 500;
+	color: #02182B;
+	padding-left: 20px;
+	padding-top: 20px;
+	border-width: 1px 0px 0px 0px;
+	border-style: dotted;
+	float: center;
+}
+
+#timestamp {
+	font-family: 'Quicksand';
+	font-size: 16px;
+	font-weight: 300;
+	float: right;
+	padding-right: 20px;
+	color: #02182B;
+}
+
+img {
+	margin-left: 10px;
+	border: 2px solid black;
+	border-spacing: 5px;
+	border-radius: 2px;
+	background-color: white;
+	height: 5%;
+	width: 5%;
+
+}
+
+/*
+	==========================FOOTER==========================
+*/
+
+.footer {
+	grid-area: f;
+	background-color: #02182B;
+	font-size: 30px;
+	font-family: 'Bebas Neue';
+}
+
+/*
+	==========================Buttons==========================
+*/
+
+.btn {
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 400;
+  letter-spacing: .5px;
+  margin: 0;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.btn-alt {
+  border: 1px solid white;
+  padding: 10px 30px;
+}
+
+.btn-alt:hover {
+  background: #00acee;
+  color: #02182B;
+}
