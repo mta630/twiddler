@@ -1,5 +1,4 @@
-/* Boxes for displaying tweets
-*/
+
 
 html, body {
   box-sizing: border-box;
@@ -40,7 +39,7 @@ html, body {
 }
 
 h1 {
-	font-family: 'Bebas Neue';
+	font-family: 'Bebas Neue', cursive;
 	text-shadow: black 2px 2px;
 	letter-spacing: 10px;
 	text-shadow: black 2px 2px;
@@ -58,7 +57,7 @@ ul li{
 	display:inline;
 	font-weight: 50;
 	font-size: 30px;
-	font-family: 'Bebas Neue';
+	font-family: 'Bebas Neue', cursive;
 	display: inline;
 }
 
@@ -102,7 +101,7 @@ ul li{
 }
 
 #user {
-	font-family: 'Quicksand';
+	font-family: 'Quicksand', sans-serif;
 	font-size: 22px;
 	font-weight: 700;
 	color: #02182B;
@@ -116,7 +115,7 @@ ul li{
 }
 
 #message {
-	font-family: 'Quicksand';
+	font-family: 'Quicksand', sans-serif;
 	font-size: 16px;
 	font-weight: 500;
 	color: #02182B;
@@ -128,7 +127,7 @@ ul li{
 }
 
 #timestamp {
-	font-family: 'Quicksand';
+	font-family: 'Quicksand', sans-serif;
 	font-size: 16px;
 	font-weight: 300;
 	float: right;

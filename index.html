@@ -2,26 +2,91 @@
 <html>
   <head>
     <script src="jquery.js"></script>
+    <script src="jquery.timeago.js"></script>
     <script src="data_generator.js"></script>
-  </head>
-  <body>
+    <link href="main.css" type="text/css" rel="stylesheet"></script>
+    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Quicksand:300,400,500,600,700&display=swap" rel="stylesheet">
     <script>
+        var currentUsername = undefined;
 
-      $(document).ready(function(){
-        var $body = $('body');
-        $body.html('');
-
-        var index = streams.home.length - 1;
-        while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($body);
-          index -= 1;
+        function getIcon(name){
+          if (name === "mracus"){
+            return "mracus.png";
+          }
+          if (name === "douglascalhoun"){
+            return "douglascalhoun.png";
+          }
+          if (name === "shawndrost"){
+            return "shawndrost.png";
+          }
+          if (name === "sharksforcheap"){
+            return "sharksforcheap.png";
+          }
+          return "you.png";
         }
 
-      });
+        function redraw(streamName, username){
+            if (username !== undefined){
+              streamName = streams.home.filter(function(tweet){return tweet.user === username});
+            }
 
+            var $container = $('.twiddle-container');
+            $container.html('');
+
+            var index = streamName.length - 1;
+
+            while (index >= 0){
+                var tweet = streamName[index];
+                var $tweet = $("<div></div>").appendTo($container);
+                var icon = getIcon(tweet.user);
+
+                var $user = $('<p><img src="' + icon + '"><span id="user">@' + tweet.user + '</span><span id="timestamp">' + $.timeago(tweet.created_at) + '</span></p>')
+                  .click({name: tweet.user},function(event){
+                    currentUsername = event.data.name;
+                    redraw(streams.home, event.data.name);
+                  })
+                  .appendTo($tweet);
+
+                var $text = $('<p id="message">' + tweet.message + '</div>')
+                  .appendTo($tweet);
+
+                index --;
+            }
+        }
     </script>
+  </head>
+  <body>
+    <script>$(document).ready(function(){redraw(streams.home);});</script>
+    <script>$(document).ready(function() {$("time.timeago").timeago();});</script>
+    <div class="container">
+      <div class="title">
+        <h1>TWIDDLER.</h1>
+      </div>
+
+      <div class="menu">
+        <ul>
+          <li><a class="btn btn-alt" href="index.html">HOME</a></li>
+          <li><a class="btn btn-alt" onclick="redraw(streams.home, currentUsername)">Generate New Tweets</a></li>
+      </div>
+
+      <div class="content">
+        <div class="twiddle-container">
+        </div>
+      </div>
+
+      <div class="footer">
+        <script> 
+          function scrollToTop() { 
+            window.scrollTo(0, 0); 
+        } 
+        </script> 
+        <ul>
+        <li><a class="btn btn-alt" onclick="scrollToTop()">TOP</a></li>
+        </ul>
+      </div>
+
+
+
+    <div>
   </body>
 </html>
